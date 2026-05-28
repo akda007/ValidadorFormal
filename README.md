@@ -37,7 +37,7 @@ Isso abrirá uma página no seu navegador onde você poderá testar logs persona
 Se preferir rodar a validação completa via CLI (Linha de Comando), execute:
 
 ```bash
-python src/testes.py
+python -m src.testes
 
 ```
 
@@ -48,10 +48,10 @@ Este comando lê os arquivos dentro da pasta `testes/` e imprime a tabela compar
 Cada validador pode ser testado individualmente pelo terminal passando a cadeia como argumento:
 
 ```bash
-python src/regular.py "LOGIN AUTH REQUEST LOGOUT"
-python src/livre_contexto.py "BEGIN BEGIN END END"
-python src/recursiva.py "OPEN COMMIT CLOSE"
-
+python -m src.regular "LOGIN AUTH REQUEST LOGOUT"
+python -m src.livre_contexto "BEGIN BEGIN END END"
+python -m src.recursiva "OPEN COMMIT CLOSE"
+python -m src.bonus_regex
 ```
 
 ---
