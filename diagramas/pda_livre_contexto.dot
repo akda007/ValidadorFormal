@@ -1,0 +1,18 @@
+digraph PDA {
+    rankdir=LR;
+    fontname="Helvetica,Arial,sans-serif";
+    node [fontname="Helvetica,Arial,sans-serif"];
+    edge [fontname="Helvetica,Arial,sans-serif"];
+
+    node [shape = doublecircle]; q2;
+    node [shape = circle]; q0 q1;
+
+    start [shape=point, width=0];
+    start -> q0;
+
+    // Transições (Formato: Input, Pop / Push)
+    // ε é representado pelo caractere grego ou a palavra epsilon (vazio)
+    q0 -> q1 [label = " BEGIN, Z0 / B Z0 "];
+    q1 -> q1 [label = " BEGIN, B / B B \n END, B / ε "];
+    q1 -> q2 [label = " ε, Z0 / Z0 "];
+}

@@ -1,0 +1,34 @@
+digraph TM {
+    rankdir=LR;
+    fontname="Helvetica,Arial,sans-serif";
+    node [fontname="Helvetica,Arial,sans-serif"];
+    edge [fontname="Helvetica,Arial,sans-serif"];
+
+    node [shape = doublecircle]; q_accept;
+    node [shape = circle]; q0 q1 q2 q3 q4;
+
+    start [shape=point, width=0];
+    start -> q0;
+
+    // Phase 1: Mark OPEN as X, move Right
+    q0 -> q1 [label = " OPEN / X, R "];
+
+    // Phase 2: Skip OPENs and Ys, find COMMIT, mark as Y, move Right
+    q1 -> q1 [label = " OPEN / OPEN, R \n Y / Y, R "];
+    q1 -> q2 [label = " COMMIT / Y, R "];
+
+    // Phase 3: Skip COMMITs and Zs, find CLOSE, mark as Z, move Left
+    q2 -> q2 [label = " COMMIT / COMMIT, R \n Z / Z, R "];
+    q2 -> q3 [label = " CLOSE / Z, L "];
+
+    // Phase 4: Rewind to the last X
+    q3 -> q3 [label = " Z / Z, L \n COMMIT / COMMIT, L \n Y / Y, L \n OPEN / OPEN, L "];
+    q3 -> q0 [label = " X / X, R "];
+
+    // Phase 5: Verification (No more OPENs, check if only Y and Z remain until blank)
+    q0 -> q4 [label = " Y / Y, R "];
+    q4 -> q4 [label = " Y / Y, R \n Z / Z, R "];
+    
+    // Accept when blank '_' is reached
+    q4 -> q_accept [label = " _ / _, R "];
+}

@@ -1,0 +1,22 @@
+digraph DFA {
+    rankdir=LR;
+    fontname="Helvetica,Arial,sans-serif";
+    node [fontname="Helvetica,Arial,sans-serif"];
+    edge [fontname="Helvetica,Arial,sans-serif"];
+
+    // Estados de aceitação (círculo duplo)
+    node [shape = doublecircle]; q3;
+    
+    // Estados normais
+    node [shape = circle]; q0 q1 q2;
+
+    // Estado inicial (seta invisível apontando para q0)
+    start [shape=point, width=0];
+    start -> q0;
+
+    // Transições
+    q0 -> q1 [label = " LOGIN "];
+    q1 -> q2 [label = " AUTH "];
+    q2 -> q2 [label = " REQUEST "];
+    q2 -> q3 [label = " LOGOUT "];
+}

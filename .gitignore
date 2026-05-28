@@ -1,0 +1,26 @@
+# Cache e arquivos compilados do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambientes Virtuais
+.venv/
+venv/
+env/
+
+# Configurações locais do Streamlit (opcional)
+.streamlit/
+
+# Arquivos gerados por IDEs e Editores (VS Code, Vim, etc.)
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos temporários de SO (macOS / Windows)
+.DS_Store
+Thumbs.db
+
+# Atenção: NÃO estamos ignorando .pdf, .png ou .dot 
+# porque o professor exige os diagramas compilados 
+# na pasta diagramas/ do repositório.
