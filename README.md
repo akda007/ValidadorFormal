@@ -14,8 +14,8 @@ Projeto prático de Modelagem Computacional focado no reconhecimento de linguage
 
 ## 🚀 Como Executar
 
-### Pré-requisitos
-Certifique-se de ter o Python 3 instalado. Instale as dependências executando:
+### Pré-requisitoS
+Certifique-se de ter o Python 3 instalado. Instale as dependências executando: (Recomenda-se utilizar .venv)
 ```bash
 pip install -r requirements.txt
 
